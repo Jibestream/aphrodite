@@ -1,5 +1,5 @@
 {
-  "name": "aphrodite",
+  "name": "@jibestream/aphrodite",
   "version": "0.5.0",
   "description": "Inline styles in JS that just work (TM)",
   "keywords": [
