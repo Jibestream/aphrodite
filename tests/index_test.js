@@ -196,7 +196,7 @@ describe('StyleSheet.create', () => {
                     width: 40,
                 },
             },
-        });
+        }, { hash : true });
 
         assert.equal(sheet.test._name, 'test_y60qhp');
     });
@@ -210,6 +210,23 @@ describe('StyleSheet.create', () => {
 
         assert.ok(sheet.empty._name);
     });
+
+    it('it doesnt add a hash', () => {
+        const sheet = StyleSheet.create({
+            test: {
+                color: 'red',
+                height: 20,
+
+                ':hover': {
+                    color: 'blue',
+                    width: 40,
+                },
+            },
+        }, { hash: false });
+
+        assert.equal(sheet.test._name, 'test');
+    });
+
 });
 
 describe('rehydrate', () => {
