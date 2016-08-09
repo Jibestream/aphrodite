@@ -38,6 +38,7 @@ const StyleTester = React.createClass({
             <a href="javascript: void 0" className={css(styles.pseudoSelectors)}>This should turn red on hover and ???? (blue or red) on active</a>,
             <div className={css(styles.flexCenter)}><div className={css(styles.flexInner)}>This should be centered inside the outer box, even in IE 10.</div></div>,
             <span className={css(styles.animate)}>This should animate</span>,
+            <span className={css(styles3['no-hash'])}>This should not have a hash</span>,
         ];
 
         return <div>
@@ -151,5 +152,11 @@ const styles2 = StyleSheet.create({
         color: "green",
     },
 });
+
+const styles3 = StyleSheet.create({
+    'no-hash': {
+        color: "green",
+    },
+}, {hash: false});
 
 export default StyleTester;
