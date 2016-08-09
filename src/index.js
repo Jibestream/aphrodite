@@ -6,12 +6,15 @@ import {
 } from './inject';
 
 const StyleSheet = {
-    create(sheetDefinition) {
+    create(sheetDefinition, options={}) {
+
         return mapObj(sheetDefinition, ([key, val]) => {
+            const hash = (options.hash === false) ? '' : `_${hashObject(val)}`;
+
             return [key, {
                 // TODO(emily): Make a 'production' mode which doesn't prepend
                 // the class name here, to make the generated CSS smaller.
-                _name: `${key}_${hashObject(val)}`,
+                _name: `${key}${hash}`,
                 _definition: val
             }];
         });
